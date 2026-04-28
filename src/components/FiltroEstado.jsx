@@ -1,9 +1,9 @@
 function FiltroEstado({ filtroEstado, setFiltroEstado }) {
   return (
-    <div className="panel" style={{ marginBottom: "24px" }}>
-      <h2>Filtrar por estado</h2>
+    <div className="panel panel-filtro">
+      <h2>Estado</h2>
 
-      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+      <div className="filtros-row">
         <button
           className={filtroEstado === "todos" ? "boton-primario" : "boton-secundario"}
           onClick={() => setFiltroEstado("todos")}

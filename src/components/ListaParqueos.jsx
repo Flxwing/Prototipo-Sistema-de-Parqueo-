@@ -1,4 +1,4 @@
-function ListaParqueos({ resultados, setParqueoSeleccionado }) {
+function ListaParqueos({ resultados, seleccionarParqueo }) {
   const textoEstado = (estado) => {
     if (estado === "disponible") return "Disponible";
     if (estado === "ocupado") return "Ocupado";
@@ -19,7 +19,8 @@ function ListaParqueos({ resultados, setParqueoSeleccionado }) {
 
       {resultados.length === 0 ? (
         <div className="lista-vacia">
-          No hay resultados todavía. Haz una búsqueda para ver opciones de parqueo.
+          No hay resultados todavía. Haz una búsqueda para ver opciones de
+          parqueo.
         </div>
       ) : (
         <div className="lista-parqueos">
@@ -40,8 +41,8 @@ function ListaParqueos({ resultados, setParqueoSeleccionado }) {
               <p><strong>Destino cercano:</strong> {parqueo.destinoCercano}</p>
 
               <button
-                className="boton-secundario"
-                onClick={() => setParqueoSeleccionado(parqueo)}
+                className="boton-secundario boton-ver-detalle"
+                onClick={() => seleccionarParqueo(parqueo)}
               >
                 Ver detalle
               </button>

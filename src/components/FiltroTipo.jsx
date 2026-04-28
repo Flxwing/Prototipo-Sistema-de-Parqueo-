@@ -1,9 +1,9 @@
 function FiltroTipo({ filtroTipo, setFiltroTipo }) {
   return (
-    <div className="panel" style={{ marginBottom: "24px" }}>
-      <h2>Filtrar por tipo</h2>
+    <div className="panel panel-filtro">
+      <h2>Tipo</h2>
 
-      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+      <div className="filtros-row">
         <button
           className={filtroTipo === "todos" ? "boton-primario" : "boton-secundario"}
           onClick={() => setFiltroTipo("todos")}
@@ -19,7 +19,7 @@ function FiltroTipo({ filtroTipo, setFiltroTipo }) {
           }
           onClick={() => setFiltroTipo("Parqueo de acceso público")}
         >
-          Parqueo de acceso público
+          Acceso público
         </button>
 
         <button
