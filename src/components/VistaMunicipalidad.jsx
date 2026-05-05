@@ -9,6 +9,9 @@ function VistaMunicipalidad({ parqueos, agregarEspacioZonaPublica, actualizarEst
     techado: false,
     pavimentado: true,
     espaciosMarcados: true,
+    referenciaLlegada: "",
+    vistaVisual: "",
+    foto: "",
   });
 
   const espaciosZonaPublica = parqueos.filter(
@@ -45,6 +48,9 @@ function VistaMunicipalidad({ parqueos, agregarEspacioZonaPublica, actualizarEst
       techado: false,
       pavimentado: true,
       espaciosMarcados: true,
+      referenciaLlegada: "",
+      vistaVisual: "",
+      foto: "",
     });
   };
 
@@ -118,9 +124,34 @@ function VistaMunicipalidad({ parqueos, agregarEspacioZonaPublica, actualizarEst
             Espacios marcados
           </label>
 
+          <textarea
+            name="vistaVisual"
+            placeholder="Descripción visual del espacio o parqueo"
+            value={nuevoEspacio.vistaVisual}
+            onChange={handleChange}
+            rows="3"
+          />
+
+          <textarea
+            name="referenciaLlegada"
+            placeholder="Indicación o referencia para llegar"
+            value={nuevoEspacio.referenciaLlegada}
+            onChange={handleChange}
+            rows="3"
+          />
+
+          <input
+            type="text"
+            name="foto"
+            placeholder="Ruta de imagen, por ejemplo: /imagenes/zona-avenida-central.jpg"
+            value={nuevoEspacio.foto}
+            onChange={handleChange}
+          />
+
           <button className="boton-primario" type="submit">
             Registrar espacio
           </button>
+
         </form>
       </div>
 

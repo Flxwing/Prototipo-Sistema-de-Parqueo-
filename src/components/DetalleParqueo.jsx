@@ -1,3 +1,5 @@
+import MapaMock from "./MapaMock";
+
 function DetalleParqueo({
   parqueoSeleccionado,
   registrarOcupacion,
@@ -84,6 +86,34 @@ function DetalleParqueo({
               <strong>Estado actual</strong>
               {textoEstado(parqueoSeleccionado.estado)}
             </div>
+          </div>
+
+          <div className="bloque-visual">
+
+            <div className="visual-simple-card">
+              <h3>Vista del parqueo</h3>
+
+              {parqueoSeleccionado.foto ? (
+                <img
+                  src="/images/parqueo-el-roble.jpg"
+                  alt="Prueba"
+                  className="foto-parqueo"
+                />
+              ) : (
+                <div className="visual-preview">
+                  <div className="visual-badge">
+                    {parqueoSeleccionado.tipo}
+                  </div>
+                  <p>{parqueoSeleccionado.vistaVisual || parqueoSeleccionado.foto}</p>
+                </div>
+              )}
+            </div>
+
+          </div>
+
+          <div className="panel-mapa">
+            <h3>Ubicación aproximada</h3>
+            <MapaMock parqueo={parqueoSeleccionado} />
           </div>
 
           <div className="referencia-visual">

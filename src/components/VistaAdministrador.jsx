@@ -14,6 +14,9 @@ function VistaAdministrador({
     techado: false,
     pavimentado: true,
     espaciosMarcados: true,
+    referenciaLlegada: "",
+    vistaVisual: "",
+    foto: "",
   });
 
   const parqueosAdministrador = useMemo(
@@ -51,6 +54,9 @@ function VistaAdministrador({
       techado: false,
       pavimentado: true,
       espaciosMarcados: true,
+      referenciaLlegada: "",
+      vistaVisual: "",
+      foto: "",
     });
   };
 
@@ -80,6 +86,9 @@ function VistaAdministrador({
       techado: parqueo.techado,
       pavimentado: parqueo.pavimentado,
       espaciosMarcados: parqueo.espaciosMarcados,
+      referenciaLlegada: parqueo.referenciaLlegada || "",
+      vistaVisual: parqueo.vistaVisual || "",
+      foto: parqueo.foto || "",
     });
   };
 
@@ -171,6 +180,30 @@ function VistaAdministrador({
             Espacios marcados
           </label>
 
+          <textarea
+            name="vistaVisual"
+            placeholder="Descripción visual del parqueo"
+            value={formulario.vistaVisual}
+            onChange={handleChange}
+            rows="3"
+          />
+
+          <textarea
+            name="referenciaLlegada"
+            placeholder="Indicación o referencia para llegar"
+            value={formulario.referenciaLlegada}
+            onChange={handleChange}
+            rows="3"
+          />
+
+          <input
+            type="text"
+            name="foto"
+            placeholder="Ruta de imagen, por ejemplo: /imagenes/parqueo-plaza-norte.jpg"
+            value={formulario.foto}
+            onChange={handleChange}
+          />
+
           <div className="acciones-admin">
             <button className="boton-primario" type="submit">
               {formulario.id ? "Guardar cambios" : "Registrar parqueo"}
@@ -185,7 +218,8 @@ function VistaAdministrador({
                 Cancelar edición
               </button>
             )}
-          </div>
+          </div>  
+
         </form>
       </div>
 

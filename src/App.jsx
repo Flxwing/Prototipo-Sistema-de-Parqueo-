@@ -8,6 +8,7 @@ import DetalleParqueo from "./components/DetalleParqueo";
 import NavegacionVistas from "./components/NavegacionVistas";
 import VistaMunicipalidad from "./components/VistaMunicipalidad";
 import VistaAdministrador from "./components/VistaAdministrador";
+//import MapaMock from "./MapaMock";
 
 const STORAGE_KEY = "parqueos_app_datos";
 function cargarParqueosIniciales() {
@@ -98,6 +99,11 @@ function App() {
       pavimentado: nuevoEspacio.pavimentado,
       espaciosMarcados: nuevoEspacio.espaciosMarcados,
       imagen: "Espacio de zona pública registrado por municipalidad",
+      referenciaLlegada:
+        nuevoEspacio.referenciaLlegada || "Referencia generada por municipalidad para este espacio.",
+      vistaVisual:
+        nuevoEspacio.vistaVisual || "Espacio de zona pública registrado en el sistema.",
+      foto: nuevoEspacio.foto || "",
     };
 
     setParqueos((prev) => [...prev, nuevo]);
@@ -116,6 +122,9 @@ function App() {
               techado: datosParqueo.techado,
               pavimentado: datosParqueo.pavimentado,
               espaciosMarcados: datosParqueo.espaciosMarcados,
+              referenciaLlegada: datosParqueo.referenciaLlegada,
+              vistaVisual: datosParqueo.vistaVisual,
+              foto: datosParqueo.foto || "",
             }
           : parqueo
       );
@@ -135,6 +144,11 @@ function App() {
       pavimentado: datosParqueo.pavimentado,
       espaciosMarcados: datosParqueo.espaciosMarcados,
       imagen: "Parqueo de acceso público registrado por administrador",
+      referenciaLlegada:
+        datosParqueo.referenciaLlegada || "Referencia visual registrada por el administrador.",
+      vistaVisual:
+        datosParqueo.vistaVisual || "Parqueo de acceso público registrado en el sistema.",
+      foto: datosParqueo.foto || "",
     };
 
     setParqueos((prev) => [...prev, nuevo]);

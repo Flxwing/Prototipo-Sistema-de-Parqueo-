@@ -422,4 +422,168 @@ button:disabled {
     color: #92400e;
   }
 
+  .bloque-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .visual-simple-card,
+  .panel-mapa {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .visual-simple-card h3,
+  .panel-mapa h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+
+  .visual-preview {
+    min-height: 120px;
+    border-radius: 12px;
+    padding: 14px;
+    background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .visual-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: #2563eb;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .mapa-mock {
+    position: relative;
+    height: 220px;
+    border-radius: 14px;
+    background: #e2e8f0;
+    overflow: hidden;
+  }
+
+  .mapa-calle {
+    position: absolute;
+    background: #cbd5e1;
+  }
+
+  .mapa-calle.horizontal {
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 26px;
+    transform: translateY(-50%);
+  }
+
+  .mapa-calle.vertical {
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 26px;
+    transform: translateX(-50%);
+  }
+
+  .mapa-destino,
+  .mapa-parqueo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mapa-destino {
+    top: 24px;
+    left: 24px;
+  }
+
+  .mapa-parqueo {
+    right: 24px;
+    bottom: 24px;
+  }
+
+  .mapa-punto {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .mapa-punto.destino {
+    background: #2563eb;
+  }
+
+  .mapa-punto.parqueo {
+    background: #dc2626;
+  }
+
+  .mapa-label {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    max-width: 140px;
+  }
+
+  .mapa-ruta {
+    position: absolute;
+    top: 66px;
+    left: 120px;
+    width: 140px;
+    height: 80px;
+    border-right: 4px dashed #2563eb;
+    border-bottom: 4px dashed #2563eb;
+    border-radius: 0 0 18px 0;
+  }
+
+  @media (max-width: 900px) {
+    .bloque-visual {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-admin textarea {
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+  }
+
+  .foto-parqueo {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    border: 1px solid #dbe3ee;
+  }
+
+  .form-admin input[type="text"],
+  .form-admin textarea,
+  .form-admin select {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .foto-parqueo {
+      height: 160px;
+    }
+  }
+
 }
