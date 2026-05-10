@@ -1,6 +1,7 @@
 function NavegacionVistas({ vistaActual, setVistaActual }) {
   return (
     <div className="panel nav-vistas">
+
       <button
         className={vistaActual === "conductor" ? "boton-primario" : "boton-secundario"}
         onClick={() => setVistaActual("conductor")}
@@ -20,6 +21,13 @@ function NavegacionVistas({ vistaActual, setVistaActual }) {
         onClick={() => setVistaActual("administrador")}
       >
         Administrador
+      </button>
+
+      <button
+        className={vistaActual === "inspector" ? "boton-primario" : "boton-secundario"}
+        onClick={() => setVistaActual("inspector")}
+      >
+        Inspector
       </button>
     </div>
   );

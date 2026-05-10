@@ -8,6 +8,8 @@ import DetalleParqueo from "./components/DetalleParqueo";
 import NavegacionVistas from "./components/NavegacionVistas";
 import VistaMunicipalidad from "./components/VistaMunicipalidad";
 import VistaAdministrador from "./components/VistaAdministrador";
+import VistaInspector from "./components/VistaInspector";
+import Notificacion from "./components/Notificacion";
 //import MapaMock from "./MapaMock";
 
 const STORAGE_KEY = "parqueos_app_datos";
@@ -34,6 +36,8 @@ function App() {
   const [filtroEstado, setFiltroEstado] = useState("todos");
   const [filtroTipo, setFiltroTipo] = useState("todos");
   const [detalleAbierto, setDetalleAbierto] = useState(false);
+  const [mensajeNotificacion, setMensajeNotificacion] = useState("");
+  const [tipoNotificacion, setTipoNotificacion] = useState("exito");
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(parqueos));
   }, [parqueos]);
@@ -80,11 +84,13 @@ function App() {
   const registrarOcupacion = () => {
     if (!parqueoSeleccionado) return;
     actualizarEstadoParqueo(parqueoSeleccionado.id, "ocupado");
+    mostrarNotificacion("Ocupación registrada correctamente.");
   };
 
   const reservarEspacio = () => {
     if (!parqueoSeleccionado) return;
     actualizarEstadoParqueo(parqueoSeleccionado.id, "reservado");
+    mostrarNotificacion("Reserva temporal realizada.");
   };
 
   const agregarEspacioZonaPublica = (nuevoEspacio) => {
@@ -107,6 +113,7 @@ function App() {
     };
 
     setParqueos((prev) => [...prev, nuevo]);
+    mostrarNotificacion("Espacio de zona pública registrado correctamente.");
   };
 
   const guardarParqueoAdministrador = (datosParqueo) => {
@@ -130,6 +137,7 @@ function App() {
       );
 
       setParqueos(parqueosActualizados);
+      mostrarNotificacion("Parqueo actualizado correctamente.");
       return;
     }
 
@@ -152,6 +160,7 @@ function App() {
     };
 
     setParqueos((prev) => [...prev, nuevo]);
+    mostrarNotificacion("Parqueo de acceso público registrado correctamente.");
   };
 
   const resultadosFiltrados = resultados.filter((parqueo) => {
@@ -171,6 +180,15 @@ function App() {
 
   const cerrarDetalle = () => {
     setDetalleAbierto(false);
+  };
+
+  const mostrarNotificacion = (mensaje, tipo = "exito") => {
+    setMensajeNotificacion(mensaje);
+    setTipoNotificacion(tipo);
+
+    setTimeout(() => {
+      setMensajeNotificacion("");
+    }, 2500);
   };
 
   return (
@@ -241,6 +259,15 @@ function App() {
           actualizarEstadoParqueo={actualizarEstadoParqueo}
         />
       )}
+
+      {vistaActual === "inspector" && (
+        <VistaInspector
+          parqueos={parqueos}
+          actualizarEstadoParqueo={actualizarEstadoParqueo}
+          mostrarNotificacion={mostrarNotificacion}
+        />
+      )}
+
     </div>
   );
 }

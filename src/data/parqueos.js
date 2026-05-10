@@ -14,7 +14,7 @@ const parqueos = [
       "Desde el Hospital San Carlos, avanzar 100 metros al norte. La entrada está al lado derecho con rótulo visible.",
     vistaVisual:
       "Entrada amplia, caseta al frente y espacios claramente marcados.",
-    foto: "/images/parqueo-el-roble.jpg"
+    foto: "/images/parqueo-hospital.jpg"
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const parqueos = [
       "Ubicada frente al edificio municipal, en la acera principal.",
     vistaVisual:
       "Espacios sobre vía pública, sin techo y con marcación lateral.",
-    foto: "/images/parqueo-el-roble.jpg"
+    foto: "/images/parqueo-municipalidad.jpg"
   },
   {
     id: 3,

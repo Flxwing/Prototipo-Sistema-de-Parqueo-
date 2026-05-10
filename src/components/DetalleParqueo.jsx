@@ -11,6 +11,7 @@ function DetalleParqueo({
     if (estado === "disponible") return "Disponible";
     if (estado === "ocupado") return "Ocupado";
     if (estado === "reservado") return "Reservado";
+    if (estado === "irregular") return "Irregular";
     return estado;
   };
 
@@ -18,6 +19,7 @@ function DetalleParqueo({
     if (estado === "disponible") return "estado estado-disponible";
     if (estado === "ocupado") return "estado estado-ocupado";
     if (estado === "reservado") return "estado estado-reservado";
+    if (estado === "irregular") return "estado estado-irregular";
     return "estado";
   };
 
@@ -95,7 +97,7 @@ function DetalleParqueo({
 
               {parqueoSeleccionado.foto ? (
                 <img
-                  src="/images/parqueo-el-roble.jpg"
+                  src={parqueoSeleccionado.foto}
                   alt="Prueba"
                   className="foto-parqueo"
                 />
